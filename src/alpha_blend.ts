@@ -35,8 +35,6 @@ export default function alpha_blend(
   var g = (g_fg * a_fg + g_bg * a_bg * (1.0 - a_fg)) / a;
   var b = (b_fg * a_fg + b_bg * a_bg * (1.0 - a_fg)) / a;
 
-  console.log(r, g, b, a);
-
   // gamma compress the final colour channels
   r = Math.pow(r, 1.0 / gamma);
   g = Math.pow(g, 1.0 / gamma);
