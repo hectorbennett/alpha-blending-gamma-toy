@@ -74,7 +74,7 @@ function App() {
         <NumberInput
           value={gamma}
           onChange={setGamma}
-          label="gamma"
+          label="Gamma"
           min={0.1}
           max={10}
           step={0.1}
