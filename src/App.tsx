@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import ColourPicker from "./ColourPicker";
 import alpha_blend from "./alpha_blend";
 import { parse_rgba_array_to_string } from "./utils";
-import { NumberInput } from "@mantine/core";
+import { Box, NumberInput, Title } from "@mantine/core";
 
 function Canvas({
   colour1,
@@ -57,10 +57,20 @@ function App() {
   const [gamma, setGamma] = useState<number | "">(2.2);
 
   return (
-    <div>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      }}
+    >
+      <Title order={3}>Linear rgb alpha blending with gamma correction</Title>
+      <Canvas colour1={colour1} colour2={colour2} gamma={gamma || 0} />
       <div>
-        <ColourPicker value={colour1} onChange={setColour1} />
-        <ColourPicker value={colour2} onChange={setColour2} />
+        <ColourPicker value={colour1} onChange={setColour1} label="Colour 1" />
+        <ColourPicker value={colour2} onChange={setColour2} label="Colour 2" />
         <NumberInput
           value={gamma}
           onChange={setGamma}
@@ -71,8 +81,7 @@ function App() {
           precision={1}
         />
       </div>
-      <Canvas colour1={colour1} colour2={colour2} gamma={gamma || 0} />
-    </div>
+    </Box>
   );
 }
 
