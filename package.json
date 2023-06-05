@@ -1,56 +1,31 @@
 {
-  "name": "rust-wasm-react-base",
+  "name": "alpha-blending-gamma-toy",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "engines": {
-    "node": "19.7.0"
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@mantine/core": "^6.0.13",
+    "@mantine/hooks": "^6.0.13",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "serve": "^14.2.0",
-    "wasm-pack": "^0.11.0"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/react": "^18.0.38",
+    "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.59.0",
     "@typescript-eslint/parser": "^5.59.0",
     "@vitejs/plugin-react": "^4.0.0",
-    "eslint": "^8.39.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-import-resolver-typescript": "^3.5.5",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.32.2",
+    "eslint": "^8.38.0",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.8.8",
-    "typescript": "^5.0.4",
-    "vite": "^4.3.1",
-    "vite-plugin-full-reload": "^1.0.5",
-    "vite-plugin-wasm-pack": "^0.1.9"
-  },
-  "scripts": {
-    "ci": "rm -rf node_modules && yarn install --frozen-lockfile",
-    "install-wasm-pack": "curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh",
-    "prepare": "yarn run install-wasm-pack && husky install && cargo install cargo-watch",
-    "dev:wasm": "cd ./wasm && cargo watch -s 'wasm-pack build . --target web'",
-    "dev:js": "vite --host",
-    "dev": "npm-run-all --parallel dev:wasm dev:js",
-    "build:wasm": "wasm-pack build ./wasm --target web --release",
-    "build:js": "vite build",
-    "build": "yarn run build:wasm && yarn run build:js",
-    "preview": "view preview",
-    "serve": "serve -s dist -p 3000",
-    "type:check": "tsc",
-    "lint:js:check": "eslint . --config ./.eslintrc.json",
-    "lint:js": "eslint --fix . --config ./.eslintrc.json",
-    "lint:wasm:check": "cd wasm && cargo clippy -- -D warnings",
-    "lint:wasm": "cd wasm && cargo clippy --fix",
-    "format:check": "prettier --check . --config ./.prettierrc.json",
-    "format": "prettier --write . --config ./.prettierrc.json",
-    "check": "yarn run type:check && yarn run lint:js:check && yarn run format:check && yarn run lint:wasm:check"
+    "eslint-plugin-react-refresh": "^0.3.4",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.9"
   }
 }
